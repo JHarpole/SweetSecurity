@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PIDFILE="/var/run/kibana.pid"
+KIBANA_DIR="/opt/kibana"
+
+if [ -f $PIDFILE ]; then
+  killall kibana
+  rm -f /var/lock/subsys/kibana $PIDFILE
+fi
+
+$KIBANA_DIR/bin/kibana -p 80 &>/dev/null & echo $! > $PIDFILE

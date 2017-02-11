@@ -1,0 +1,10 @@
+[Unit]
+DefaultDependencies=yes
+Description=Initializing and terminating Kibana
+
+[Service]
+ExecStart=/usr/local/bin/start_kibana
+ExecStop=/usr/local/bin/stop_kibana
+
+[Install]
+WantedBy=multi-user.target
